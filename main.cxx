@@ -39,8 +39,9 @@ int main()
 {
 	LudoGame Game;
 	Game.Play();
-	initwindow(500, 500, "First Sample");
-	circle(getmaxx()/2, getmaxy()/2, getmaxx()/3);
+
+
+	//circle(getmaxx()/2, getmaxy()/2, getmaxx()/3);
 	while (!kbhit())
 	{
 		delay(200);

@@ -5,10 +5,12 @@ void LudoGame::Initialize()
 {
 	char t;
 	cout << "Enter the Number of Players";
-	cin >> NOP;
+	//cin >> NOP;
 	NOP = 4;	//assuming the NOP is 4
 	cout << "Do you want to Play in Teams (Y/N)";
-	cin >> t;											//we are assuming here that the user will give correct input so we don't need to check 
+	//cin >> t;
+	t = 'y';
+	//we are assuming here that the user will give correct input so we don't need to check 
 	if (t == 'Y' || t == 'y')
 	{
 		NOT = NOP / 2;
@@ -68,7 +70,31 @@ void LudoGame::GetInput(Point& S)
 
 }
 
-void LudoGame::Print_Game() {}
+void LudoGame::Print_Game() 
+{
+	initwindow(1300, 800, "LUDO");
+	int R = 20, sx = 100,sy=60;
+	for (int i{ 0 }; i < 6; i++)		//for the extreme left upper
+	{
+		circle((i*R*2)+sx, 300, R);
+	}
+	for (int i{ 0 }; i < 6; i++)		//for the extreme left straight
+	{
+		circle(350, (i*R*2)+sy, R);
+	}
+	for (int i{ 0 }; i < 2; i++)		//for the 1st one 3
+	{
+		circle(100, ((i * R * 2) + sy)+((5 * R * 2) + sy+R), R);
+	}
+	for (int i{ 0 }; i < 5; i++)	//for the left lower
+	{
+		circle((i * R * 2) + sx+(R*2), 300+(R*4), R);
+	}
+	for (int i{ 0 }; i < 5; i++)
+	{
+		circle(350, ((i * R * 2) + sy)+(R*18), R);
+	}
+}
 void LudoGame::Play_Turn() {}
 bool LudoGame::Out_of_Home() { return false; }
 bool LudoGame::Turn_Change() { return false; }
